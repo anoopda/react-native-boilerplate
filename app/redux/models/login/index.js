@@ -1,52 +1,57 @@
-import { storeData ,removeData} from '../../../utils/storage';
+import { storeData, removeData } from '../../../utils/storage';
 import { navigate } from '../../../router/navigationService';
+
 const initialState = {
-    error:''
-}
-const mockPromise = () =>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
+    error: ''
+};
+
+const mockPromise = () => new Promise((resolve) => {
+        setTimeout(() => {
             resolve(
                 {
-                    success: 'true', 
+                    success: 'true',
                     data: {
                         token: 'asdsdsds'
                     }
                 }
-        )
-        },2000)
+        );
+        }, 2000);
     });
-}
+
+
 export const login = {
     state: {
         ...initialState
     },
     reducers: {
-        onLoginErr(state,payload){
+        onLoginErr(state) {
             state.error = 'Login Error';
             return state;
         },
-        clearLoginErr(state,payload){
+        clearLoginErr(state) {
             state.error = '';
             return state;
         }
     },
     effects: (dispatch) => {
-        const {login:{
+        const {
+            login: {
             onLoginErr,
             clearLoginErr
-        },user:{
+        },
+        user: {
             updateUserData,
             clearUserData,
             updateAuthorisationStatus
-        }} = dispatch;
+        }
+    } = dispatch;
         return {
-            async handleLoginSucess(userData,rootState){
-                const { success } = await storeData('userData',userData);
+            async handleLoginSucess(userData) {
+                const { success } = await storeData('userData', userData);
                 updateUserData(userData);
                 navigate('SampleScreen');
             },
-            async handlelogin(payload,rootState){
+            async handlelogin() {
                 try{
                     clearLoginErr();
                     const response = await mockPromise();

@@ -3,6 +3,7 @@ import { getState } from '../../store';
 const initialState = {
     ready: false
 }
+
 export const app = {
     state: {
         ...initialState

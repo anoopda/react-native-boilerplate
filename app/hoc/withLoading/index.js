@@ -1,6 +1,13 @@
 import React from 'react';
-import {View,StyleSheet} from 'react-native';
+import { View,StyleSheet} from 'react-native';
 import LoadingView from '../../components/loading';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        position: 'relative'
+    }
+})
 
 export const withLoading =  (loadingPropNames) => (WrappedComponent) => (props) => {
     const loading = loadingPropNames.reduce((acc,item)=>{
@@ -14,9 +21,3 @@ export const withLoading =  (loadingPropNames) => (WrappedComponent) => (props) 
     )
 }
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        position:'relative'
-    }
-})

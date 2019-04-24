@@ -22,4 +22,5 @@ export const getState = () => {
   return store.getState()
 }
 
+
 export default store;

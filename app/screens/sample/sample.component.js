@@ -1,46 +1,22 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import styles from './styles';
+
 const SampleScreen = (props) => {
-  const {
-    updateCount,
-    handlelogout,
-    sample: {
-      count
-    } } = props;
 
-  const onButtonPress = () => {
-    updateCount && updateCount(count + 1);
-  }
-
-  const onPressLogoutBtn = () =>{
+  onLogoutPress = () =>{
+    const { handlelogout } = props;
     handlelogout && handlelogout();
   }
+  return(<View style={styles.container}>
+    <Text>Sample Screen</Text>
+    <View style={styles.innerBody}>
+      <TouchableOpacity  onPress={onLogoutPress}>
+        <Text>Logout</Text>    
+      </TouchableOpacity>
+    </View>  
+  </View>)
 
-  return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Sample Screeen</Text>
-      </View>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <TouchableOpacity onPress={onButtonPress}>
-          <Text>Press {count}</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={onPressLogoutBtn}>
-          <Text>Logout</Text>
-        </TouchableOpacity>
-    
-      </View>
-    </View>
-  )
-}
+};
 
 export default SampleScreen;
-
-
-
-
-
-
-
-

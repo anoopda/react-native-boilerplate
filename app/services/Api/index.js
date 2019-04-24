@@ -1,14 +1,19 @@
 import Axios from 'axios';
+import { requestInterceptor ,
+         requestErrorInterceptor,
+         responseInterceptor,
+         responseErrorInterceptor 
+} from './interceptors';
 
 export const Api = Axios.create({
-    baseURL: 'http://www.mocky.io',
+  baseURL: 'http://www.mocky.io',
 })
 
-Api.interceptors.response.use(function (response) {
-    return response;
-  }, function (error) {
-    return Promise.reject(error);
-  })
-;
+AuthorizedApi.interceptors.request.use(requestInterceptor,requestErrorInterceptor);
+AuthorizedApi.interceptors.response.use(responseInterceptor,responseErrorInterceptor);
 
-export const API_LOGIN  =  '/v2/5185415ba171ea3a00704eed';
+
+//unauthorised API's
+export const API_LOGIN = '/v2/5185415ba171ea3a00704eed';
+
+//authorised API's

@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from 'react-native';
 
-export const getDeviceInfo = () =>{
+export const getDeviceInfo = () => {
   const OS = Platform.OS;
   const WIDTH = Dimensions.get('window').width;
   const HEIGHT = Dimensions.get('window').height;
@@ -14,9 +14,9 @@ export const getDeviceInfo = () =>{
   device.highestDimension = WIDTH > HEIGHT ? WIDTH : HEIGHT;
   device.lowestDimension = effectiveWidth;
 
-  if(OS=="ios") {
+  if (OS == "ios") {
     device.type = effectiveWidth < BENCHMARK ? "iosMobile" : "iosTablet";
-  } else if(OS=="android") {
+  } else if (OS == "android") {
     device.type = effectiveWidth < BENCHMARK ? "androidMobile" : "androidTablet";
   }
   return device;

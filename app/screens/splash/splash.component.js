@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text } from 'react-native';
+import styles from './styles';
 
 const SplashScreen = (props) => {
     const setSplashDelay = () =>{
@@ -15,7 +16,7 @@ const SplashScreen = (props) => {
     }, []);
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.container}>
             <Text>Splash Screeen</Text>
         </View>
     );
