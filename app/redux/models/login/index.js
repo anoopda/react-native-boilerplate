@@ -1,5 +1,6 @@
 import { storeData, removeData } from '../../../utils/storage';
 import { navigate } from '../../../router/navigationService';
+import { Api , API_LOGIN } from '../../../services/Api'
 
 const initialState = {
     error: ''
@@ -16,7 +17,14 @@ const mockPromise = () => new Promise((resolve) => {
                 }
         );
         }, 2000);
-    });
+});
+
+const mockData = {
+    success: 'true',
+    data: {
+        token: 'asdsdsds'
+    }
+}
 
 
 export const login = {
@@ -54,7 +62,8 @@ export const login = {
             async handlelogin() {
                 try{
                     clearLoginErr();
-                    const response = await mockPromise();
+                    const response = await Api.get(API_LOGIN);
+                    debugger;
                     if( response.success && response.data && response.data.token ){
                         dispatch.login.handleLoginSucess(response.data);
                     }else{

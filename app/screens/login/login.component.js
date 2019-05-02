@@ -23,6 +23,8 @@ const config = {
 };
 
 const LoginScreen = (props) => {
+    let btnRef = null;         
+
     const {
         fieldState,
         errState,
@@ -55,7 +57,9 @@ const LoginScreen = (props) => {
                     onChangeText={handleOnChange('email')}
                 />
                 <Text>{errState.emailErr}</Text>
-                <TouchableOpacity onPress={handleLoginPress}>
+                <TouchableOpacity 
+                ref={refs => btnRef = refs} 
+                onPress={handleLoginPress}>
                     <Text>Login</Text>
                 </TouchableOpacity>
             </View>

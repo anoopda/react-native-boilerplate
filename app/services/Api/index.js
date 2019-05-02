@@ -9,8 +9,8 @@ export const Api = Axios.create({
   baseURL: 'http://www.mocky.io',
 })
 
-AuthorizedApi.interceptors.request.use(requestInterceptor,requestErrorInterceptor);
-AuthorizedApi.interceptors.response.use(responseInterceptor,responseErrorInterceptor);
+Api.interceptors.request.use(requestInterceptor,requestErrorInterceptor);
+Api.interceptors.response.use(responseInterceptor,responseErrorInterceptor);
 
 
 //unauthorised API's

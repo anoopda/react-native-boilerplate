@@ -4,6 +4,8 @@ import styles from './styles';
 
 const SampleScreen = (props) => {
 
+
+
   onLogoutPress = () =>{
     const { handlelogout } = props;
     handlelogout && handlelogout();
@@ -11,7 +13,8 @@ const SampleScreen = (props) => {
   return(<View style={styles.container}>
     <Text>Sample Screen</Text>
     <View style={styles.innerBody}>
-      <TouchableOpacity  onPress={onLogoutPress}>
+      <TouchableOpacity
+       onPress={onLogoutPress}>
         <Text>Logout</Text>    
       </TouchableOpacity>
     </View>  

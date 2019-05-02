@@ -1,8 +1,4 @@
-import store from '../../redux/store'
-import {
-    handleUnauthorisedApiError
-} from '../store/actions/login';
-
+import store from '../../redux/store';
 //handle request
 export const requestInterceptor = (config) => {
     const { user:{
